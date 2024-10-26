@@ -1,0 +1,48 @@
+{
+  "name": "my-deps",
+  "main": "dist/index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "engineStrict": true,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "format:eslint": "eslint --fix",
+    "format:prettier": "prettier --write src",
+    "format": "npm run format:eslint && npm run format:prettier",
+    "precommit": "lint-staged",
+    "prepush": "npm run test",
+    "postinstall": "husky install",
+    "postpublish": "pinst --enable",
+    "prepublishOnly": "pinst --disable",
+    "test": "jest --coverage",
+    "test:dev": "jest -w",
+    "test:build": "jest dist",
+    "build": "tsc && npm run test:build"
+  },
+  "lint-staged": {
+    "src/**/*.ts": "npm run format"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@swc-node/jest": "^1.8.12",
+    "@types/eslint__js": "^8.42.3",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.8.1",
+    "@typescript-eslint/parser": "^8.11.0",
+    "eslint": "^9.13.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jest": "^28.8.3",
+    "husky": "^9.1.6",
+    "jest": "^29.7.0",
+    "lint-staged": "^15.2.10",
+    "pinst": "^3.0.0",
+    "prettier": "^3.3.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.11.0"
+  }
+}
